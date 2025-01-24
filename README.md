@@ -1,6 +1,8 @@
 # Match Cards Component
 
 This project is a React-based component that dynamically renders sports match cards, categorized by their status (`Live`, `Upcoming`, `Completed`) and grouped by dates. It includes features like filtering and responsive design.
+![image](https://github.com/user-attachments/assets/dfa33b64-7520-4ebb-9553-54e23dc6fa90)
+
 
 ## Features
 
