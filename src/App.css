@@ -1,0 +1,25 @@
+.app-container {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column; 
+  /* Mobile-first: stacked vertically */
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: black; /* example background color */
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  /* If you need changes for larger screens, add them here */
+  .app-container {
+    max-width: 600px; /* limit width for tablet screens, optional */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* If you need changes for desktop, add them here */
+  .app-container {
+    max-width: 800px; 
+  }
+}

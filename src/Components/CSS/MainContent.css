@@ -1,0 +1,57 @@
+.main-content {
+  padding: 80px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.filter-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 1px solid #252121;
+  background-color: #292121;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button.active {
+  background-color: #191d1b;
+  color: rgb(216, 57, 57);
+  border-color: #1e2421;
+}
+
+.filter-button:hover {
+  background-color: #201d1d;
+}
+
+.matches-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.date-group {
+  margin-bottom: 20px;
+}
+
+.match-date {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center; /* Center the date text horizontally */
+}
+
+
+.cards-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
