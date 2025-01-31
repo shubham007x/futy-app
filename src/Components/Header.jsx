@@ -2,14 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import "./CSS/Header.css";
 import logo from "../Images/logo.png";
 
-const Header = () => {
+const Header = ({ setQuery }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  const [hidden, setHidden] = useState(false); // <--- NEW: track whether the header is hidden
+  const [hidden, setHidden] = useState(false);
   const scrollTimeoutRef = useRef(null);
 
   const searchRef = useRef(null);
-
+  const [inputValue, setInputValue] = useState("");
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -17,8 +17,13 @@ const Header = () => {
   const toggleSearch = () => {
     setShowSearch(true);
   };
+  const handleClose = () => {
+    setInputValue("");
+    setQuery("");
+   setShowSearch(false);
+    
+  };
 
-  // Close search if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -31,18 +36,14 @@ const Header = () => {
     };
   }, []);
 
-  // Hide header on scroll, show again after user stops scrolling
   useEffect(() => {
     const handleScroll = () => {
-      // Hide immediately on scroll
       setHidden(true);
 
-      // Clear any previous scroll timeout
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
 
-      // If user stops scrolling for 200ms, show again
       scrollTimeoutRef.current = setTimeout(() => {
         setHidden(false);
       }, 200);
@@ -52,7 +53,7 @@ const Header = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      // Cleanup timeout if the component unmounts
+
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
@@ -75,12 +76,22 @@ const Header = () => {
           </button>
         )}
         {showSearch && (
-          <input
-            ref={searchRef}
-            type="text"
-            placeholder="Search..."
-            className="search-input"
-          />
+          <div style={{ display: "flex" }}>
+            <input
+              ref={searchRef}
+              type="text"
+              value={inputValue}
+              placeholder="Search..."
+              className="search-input"
+              onChange={(e) => {
+                setInputValue(e.target.value);
+                setQuery(e.target.value.toLowerCase());
+              }}
+            />
+            <button className="close-btn" onClick={handleClose}>
+              ❌
+            </button>
+          </div>
         )}
         <button
           className="howtoplay"

@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import MatchCard from "./MatchCard";
 import "./CSS/MainContent.css";
-import { data }  from "./data";
-const MainContent = () => {
-  // Match details array
-    const matchDetails=data();
+import { data } from "./data";
+const MainContent = ({ query }) => {
+  const matchDetails = data();
 
-  // State to track the current filter
   const [filter, setFilter] = useState("Live");
 
-  // Filter matches based on the current filter
-  const filteredMatches = matchDetails.filter(
-    (match) => match.status === filter
-  );
-
-  // Group matches by date
+  const filteredMatches = matchDetails
+    .filter((match) => match.status === filter)
+    .filter((match) =>
+      query
+        ? match.homeTeam.toLowerCase().includes(query) ||
+          match.awayTeam.toLowerCase().includes(query)
+        : true
+    );
+// console.log(filteredMatches);
   const groupedMatches = filteredMatches.reduce((acc, match) => {
     if (!acc[match.date]) {
       acc[match.date] = [];
@@ -25,7 +26,6 @@ const MainContent = () => {
 
   return (
     <div className="main-content">
-      {/* Buttons for filtering */}
       <div className="filter-buttons">
         <button
           className={`filter-button ${filter === "Live" ? "active" : ""}`}
@@ -47,7 +47,6 @@ const MainContent = () => {
         </button>
       </div>
 
-      {/* Render grouped matches */}
       <div className="matches-container">
         {Object.keys(groupedMatches).length > 0 ? (
           Object.keys(groupedMatches).map((date) => (

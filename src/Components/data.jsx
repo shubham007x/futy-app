@@ -159,6 +159,16 @@ let matchDetails = [
       awayLogo: "../Images/logo.png",
       status: "Upcoming",
     },
+    {
+      id: 17,
+      homeTeam: "IND",
+      awayTeam: "ARG",
+      date: "SEP 14",
+      time: "19:00",
+      homeLogo: "../Images/football.png",
+      awayLogo: "../Images/logo.png",
+      status: "Live",
+    },
   ];
 export const data=()=>{
 return matchDetails

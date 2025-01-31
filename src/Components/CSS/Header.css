@@ -6,20 +6,19 @@
   padding: 1rem;
   border-bottom: 3px solid white;
 
-  /* Make it stick to the top */
+
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
 
-  /* Ensure it appears over other elements */
+
   z-index: 999;
 
-  /* Smooth transition for sliding up/down */
+
   transition: transform 0.3s ease;
 }
 
-/* When hidden, slide it up (out of view) */
 .header--hidden {
   transform: translateY(-100%);
 }
@@ -31,7 +30,7 @@
   width: 100%;
 }
 
-/* The rest of your existing styles remain the same */
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -43,8 +42,11 @@
   border-radius: 50%;
   margin-right: 10px;
 }
+.header-logo:hover{
+  transform: scale(1.2);
+}
 
-/* Custom button styling */
+
 .custom-button {
   display: flex;
   align-items: center;
@@ -59,6 +61,9 @@
   cursor: pointer;
   margin-left: 10px;
 }
+.custom-button:hover{
+  transform: scale(1.2);
+}
 
 .button-text {
   margin-right: 5px;
@@ -70,7 +75,7 @@
   transition: 0.3s ease;
 }
 
-/* Search button */
+
 .search-button {
   background-color: black;
   color: white;
@@ -82,11 +87,12 @@
 }
 
 .search-button:hover {
-  background-color: white;
+  background-color: yellowgreen;
   color: black;
+  transform: scale(1.2);
 }
 
-/* Search input */
+
 .search-input {
   width: 100%;
   max-width: 300px;
@@ -99,7 +105,7 @@
   margin-right: 10px;
 }
 
-/* Hamburger button */
+
 .hamburger-button {
   background-color: black;
   color: white;
@@ -113,10 +119,10 @@
   color: orange;
 }
 
-/* Hamburger menu styling */
+
 .hamburger-menu {
   position: absolute;
-  top: 60px; /* Adjust as needed */
+  top: 60px; 
   right: 0;
   width: 200px;
   background-color: black;

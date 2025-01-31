@@ -1,6 +1,6 @@
 .match-card {
-    background-color:rgb(54, 47, 47); /* Black background */
-    color: #fff; /* White text */
+    background-color:rgb(54, 47, 47);
+    color: #fff; 
     width: 300px;
     border: 2px rgb(54, 47, 47) ;
     padding: 15px;
@@ -51,7 +51,7 @@
   }
   
   .join-game-btn {
-    background-color: #0f9d58; /* Green button */
+    background-color: #0f9d58; 
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -63,6 +63,6 @@
   }
   
   .join-game-btn:hover {
-    background-color: #0c7a45; /* Darker green on hover */
+    background-color: #0c7a45;
   }
   
